@@ -9,3 +9,6 @@ celery_app = Celery(
     broker=os.getenv("REDIS_URL"),
     backend=os.getenv("REDIS_URL")
 )
+
+# Tell Celery to automatically find tasks inside app/
+celery_app.autodiscover_tasks(['app'])
